@@ -1,0 +1,149 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    kubebuilder.k8s.io: 0.1.12
+  name: kubemammals-system
+spec: {}
+status: {}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    kubebuilder.k8s.io: 0.1.12
+  name: kubemammals-role
+rules:
+- apiGroups:
+  - mammals.chill.af
+  resources:
+  - '*'
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    kubebuilder.k8s.io: 0.1.12
+  name: kubemammals-rolebinding
+  namespace: kubemammals-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kubemammals-role
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: kubemammals-system
+---
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    kubebuilder.k8s.io: 0.1.12
+  name: sloths.mammals.chill.af
+spec:
+  group: mammals.chill.af
+  names:
+    kind: Sloth
+    plural: sloths
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      properties:
+        apiVersion:
+          type: string
+        kind:
+          type: string
+        metadata:
+          type: object
+        spec:
+          properties:
+            color:
+              type: string
+          type: object
+        status:
+          properties:
+            message:
+              type: string
+          type: object
+      type: object
+  version: v1beta1
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: null
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    control-plane: controller-manager
+    kubebuilder.k8s.io: 0.1.12
+  name: kubemammals-controller-manager-service
+  namespace: kubemammals-system
+spec:
+  clusterIP: None
+  selector:
+    api: kubemammals
+    control-plane: controller-manager
+    kubebuilder.k8s.io: 0.1.12
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: null
+  labels:
+    api: kubemammals
+    control-plane: controller-manager
+    kubebuilder.k8s.io: 0.1.12
+  name: kubemammals-controller-manager
+  namespace: kubemammals-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      api: kubemammals
+      control-plane: controller-manager
+      kubebuilder.k8s.io: 0.1.12
+  serviceName: kubemammals-controller-manager-service
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        api: kubemammals
+        control-plane: controller-manager
+        kubebuilder.k8s.io: 0.1.12
+    spec:
+      containers:
+      - args:
+        - --install-crds=false
+        command:
+        - /root/controller-manager
+        image: aaronpaz/kubebuilder-demo:latest
+        name: controller-manager
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+      terminationGracePeriodSeconds: 10
+  updateStrategy: {}
+status:
+  replicas: 0
