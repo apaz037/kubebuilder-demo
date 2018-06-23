@@ -2,7 +2,14 @@
 Just messing around with kubebuilder as a method of generating custom resource definitions for use as controllers or operators!
 
 ## Why this tool is useful
-![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/creatingTheThings.png "applying our generated install.yaml")
+
+### Setting things up for our controller
+![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/setting-things-up.png "applying our generated install.yaml")
+
+### Creating a Custom Resource from our CRD
+![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/creating-a-custom-resource.png "applying our generated install.yaml")
+
+
 
 ## Links
 - [Docker Hub Image](https://hub.docker.com/r/aaronpaz/kubebuilder-demo/)
