@@ -12,6 +12,9 @@ Just messing around with kubebuilder as a method of generating custom resource d
 ### Implementing Controller/Operator Functionality quickly and easily
 ![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/controller_reconcile_function.png "demo of controller reconcile funcion, get's hit when a CR is created from our CRD")
 
+### Modifying Resources with our Controller/Operator
+![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/modifying-a-resource-with-our-controller.png "When our controller's reconcile function runs and finds any sloths, we mark them with a message")
+
 ## Links
 - [Docker Hub Image](https://hub.docker.com/r/aaronpaz/kubebuilder-demo/)
 

@@ -1,6 +1,7 @@
 package sloth
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/kubernetes-sigs/kubebuilder/pkg/controller"
@@ -13,6 +14,8 @@ import (
 	mammalsv1beta1lister "kubebuilder-demo/pkg/client/listers/mammals/v1beta1"
 
 	"kubebuilder-demo/pkg/inject/args"
+
+	"k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE
@@ -20,11 +23,19 @@ import (
 // Controller implementation logic for Sloth resources goes here.
 
 func (bc *SlothController) Reconcile(k types.ReconcileKey) error {
-	// INSERT YOUR CODE HERE	
+	// INSERT YOUR CODE HERE
 	if !bc.logged {
 		log.Printf("Implement the Reconcile function on sloth.SlothController to reconcile %s\n", k.Name)
 		bc.logged = true
+
+		sloth, err := bc.slothclient.Sloths(k.Namespace).Get(k.Name, v1.GetOptions{})
+		if err != nil {
+			log.Printf("Error: %v\n", err)
+		}
+		sloth.Status.Message = fmt.Sprintf("We operated on this sloth: %s", sloth.Spec.Color)
+		bc.slothclient.Sloths(k.Namespace).Update(sloth)
 	}
+
 	return nil
 }
 
