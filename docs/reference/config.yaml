@@ -1,0 +1,10 @@
+example_location: "examples"
+api_groups: 
+  - "Mammals"
+resource_categories: 
+- name: "Mammals"
+  include: "mammals"
+  resources: 
+  - name: "Sloth"
+    version: "v1beta1"
+    group: "mammals"
