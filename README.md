@@ -14,6 +14,7 @@ Just messing around with kubebuilder as a method of generating custom resource d
 
 ## Links
 - [Docker Hub Image](https://hub.docker.com/r/aaronpaz/kubebuilder-demo/)
+- [Under The Hood of Kubebuilder](https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796)
 
 ## Notes
 "When simply deploying is not enough is when I start to scratch my head wondering whether its time to start writing a controller or an operator." - Kris Nova
