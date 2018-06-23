@@ -20,8 +20,11 @@ import (
 // Controller implementation logic for Sloth resources goes here.
 
 func (bc *SlothController) Reconcile(k types.ReconcileKey) error {
-	// INSERT YOUR CODE HERE
-	log.Printf("Implement the Reconcile function on sloth.SlothController to reconcile %s\n", k.Name)
+	// INSERT YOUR CODE HERE	
+	if !bc.logged {
+		log.Printf("Implement the Reconcile function on sloth.SlothController to reconcile %s\n", k.Name)
+		bc.logged = true
+	}
 	return nil
 }
 
@@ -33,6 +36,9 @@ type SlothController struct {
 	// recorder is an event recorder for recording Event resources to the
 	// Kubernetes API.
 	slothrecorder record.EventRecorder
+
+	// After we log, we flip this bit
+	logged bool
 }
 
 // ProvideController provides a controller that will be run at startup.  Kubebuilder will use codegeneration
