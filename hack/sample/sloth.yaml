@@ -3,4 +3,4 @@ kind: Sloth
 metadata:
   name: sloth-one
 spec:
-  foo: bar
+  color: black
