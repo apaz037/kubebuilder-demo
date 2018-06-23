@@ -7,9 +7,10 @@ Just messing around with kubebuilder as a method of generating custom resource d
 ![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/setting-things-up.png "applying our generated install.yaml")
 
 ### Creating a Custom Resource from our CRD
-![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/creating-a-custom-resource.png "applying our generated install.yaml")
+![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/creating-a-custom-resource.png "creating a CR from our CRD")
 
-
+### Implementing Controller/Operator Functionality quickly and easily
+![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/controller_reconcile_function.png "demo of controller reconcile funcion, get's hit when a CR is created from our CRD")
 
 ## Links
 - [Docker Hub Image](https://hub.docker.com/r/aaronpaz/kubebuilder-demo/)
