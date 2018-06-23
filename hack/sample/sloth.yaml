@@ -1,0 +1,6 @@
+apiVersion: mammals.chill.af/v1beta1
+kind: Sloth
+metadata:
+  name: sloth-example
+spec:
+  foo: bar
