@@ -6,7 +6,7 @@ Just messing around with kubebuilder as a method of generating custom resource d
 ### Setting things up for our controller
 ![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/setting-things-up.png "applying our generated install.yaml")
 
-### Creating a Custom Resource from our CRD
+### Creating an Object from our Custom Resource Definition
 ![alt text](https://github.com/apaz037/kubebuilder-demo/raw/master/hack/images/creating-a-custom-resource.png "creating a CR from our CRD")
 
 ### Implementing Controller/Operator Functionality quickly and easily
