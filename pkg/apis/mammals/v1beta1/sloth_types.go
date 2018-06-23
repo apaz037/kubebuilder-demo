@@ -13,12 +13,16 @@ import (
 type SlothSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "kubebuilder generate" to regenerate code after modifying this file
+	Color string `json:"color,omitempty"`
+
+	//  Define relevant sloth config bits here.
 }
 
 // SlothStatus defines the observed state of Sloth
 type SlothStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "kubebuilder generate" to regenerate code after modifying this file
+	Message string `json:"message,omitempty"` 
 }
 
 // +genclient

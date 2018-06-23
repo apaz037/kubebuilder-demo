@@ -80,12 +80,20 @@ var (
 							Type: "object",
 						},
 						"spec": v1beta1.JSONSchemaProps{
-							Type:       "object",
-							Properties: map[string]v1beta1.JSONSchemaProps{},
+							Type: "object",
+							Properties: map[string]v1beta1.JSONSchemaProps{
+								"color": v1beta1.JSONSchemaProps{
+									Type: "string",
+								},
+							},
 						},
 						"status": v1beta1.JSONSchemaProps{
-							Type:       "object",
-							Properties: map[string]v1beta1.JSONSchemaProps{},
+							Type: "object",
+							Properties: map[string]v1beta1.JSONSchemaProps{
+								"message": v1beta1.JSONSchemaProps{
+									Type: "string",
+								},
+							},
 						},
 					},
 				},
